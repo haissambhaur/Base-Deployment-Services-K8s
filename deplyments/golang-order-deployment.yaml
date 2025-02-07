@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: golang-order-deployment
+ labels:
+  app: golang-order
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: golang-order
+ template:
+  metadata:
+   labels:
+    app: golang-order
+  spec:
+   containers:
+    - name: golang-order
+      image: pamitedu/golang-order-service:latest
+      ports:
+       - containerPort: 8080 

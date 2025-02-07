@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: ruby-auth-service
+ labels:
+  app: ruby-auth
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: ruby-auth  #on this basis the pods are going to be selected
+ template:
+  metadata:
+   labels:
+    app: ruby-auth
+  spec:
+   containers:
+    - name: ruby-auth
+      image: pamitedu/ruby-authentication-service:latest
+      ports:
+       - containerPort: 4567
+    
