@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: golang-order-configmap
+data:
+ AUTH_SERVICE_URL: "http://ruby-auth-service:4567"
+ ORDER_SERVICE_PORT: "8080"
