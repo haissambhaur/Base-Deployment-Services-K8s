@@ -1,0 +1,7 @@
+$ openssl genrsa -out dev-user.key 2048
+
+$ openssl req -new -key dev-user.key -out dev-user.csr 
+
+$ openssl x509 -req -in dev-user.csr -CA "$HOME/.minikube/ca.crt" -CAkey "$HOME/.minikube/ca.key" -CAcreateserial -out dev-user.crt -days 720
+
+$ kubectl auth can-i list pods --namespace=default --as=Haissam
